@@ -2,4 +2,223 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+
+:root {
+  /* Primary Colors */
+  --color-light-red: hsl(0, 100%, 67%);
+  --color-orangey-yellow: hsl(39, 100%, 56%);
+  --color-green-teal: hsl(166, 100%, 37%);
+  --color-cobalt-blue: hsl(234, 85%, 45%);
+  
+  /* Gradients */
+  --color-light-slate-blue-background: hsl(252, 100%, 67%);
+  --color-light-royal-blue-background: hsl(241, 81%, 54%);
+  --color-violet-blue-circle: hsla(256, 72%, 46%, 1);
+  --color-persian-blue-circle: hsla(241, 72%, 46%, 0);
+  
+  /* Neutral Colors */
+  --color-white: hsl(0, 0%, 100%);
+  --color-pale-blue: hsl(221, 100%, 96%);
+  --color-light-lavender: hsl(241, 100%, 89%);
+  --color-dark-gray-blue: hsl(224, 30%, 27%);
+}
+
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-size: 18px;
+}
+
+
+#container {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  box-shadow: 10px 11px 29px -16px rgba(0,189,145,0.75);
+  -webkit-box-shadow: 10px 11px 29px -16px rgba(0,189,145,0.75);
+  -moz-box-shadow: 10px 11px 29px -16px rgba(0,189,145,0.75);
+}
+
+
+.score {
+  list-style-type: none;
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  border: none;
+  margin-right: 1rem;
+}
+
+
+#reaction p{
+  color: var(--color-light-red);
+}
+
+#reaction, #memory {
+  background-color: rgb(255, 240, 240);
+}
+
+#verbal, #visual {
+  background-color: #f2fffa;
+}
+
+#memory p {
+  color: var(--color-orangey-yellow);
+}
+
+#verbal p {
+  color: var(--color-green-teal);
+}
+
+#visual p {
+  color: var(--color-cobalt-blue);
+}
+
+.corner--border {
+  border: none;
+  border-radius: 10px;
+
+  --s: 10px; /* the size on the corner */
+  --t: 1px;  /* the thickness of the border */
+  --g: 0px; /* the gap between the border and image */
+  
+  padding: calc(var(--g) + var(--t));
+  outline: var(--t) solid var(--color-light-lavender); /* the color here */
+  outline-offset: calc(-1*var(--t));
+  -webkit-mask:
+    conic-gradient(at var(--s) var(--s),#0000 75%,#000 0)
+    0 0/calc(100% - var(--s)) calc(100% - var(--s)),
+    linear-gradient(#000 0 0) content-box;
+}
+
+.score > * {
+  padding: 10px;
+}
+
+
+.score div {
+  display: flex;
+  gap: 5px;
+}
+
+
+#score--container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+#btn {
+  outline: none;
+  border: none;
+  color: white;
+  background-color: var(--color-dark-gray-blue);
+  border-radius: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+
+#btn:active {
+  background: rgb(46,43,233);
+  background: linear-gradient(0deg, rgba(46,43,233,1) 45%, rgba(120,87,240,1) 100%);
+}
+
+
+#result--container {
+  background: rgb(46,43,233);
+  background: linear-gradient(0deg, rgba(46,43,233,1) 45%, rgba(120,87,240,1) 100%);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+#result--container h3 {
+  color: var(--color-light-lavender);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
+#total--container {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(46,43,233);
+  background: linear-gradient(0deg, rgba(46,43,233,1) 0%, rgba(78,33,202,1) 100%);
+}
+
+
+#total--container p:first-child {
+  color: white;
+  font-weight: 800;
+  font-size: 4rem;
+}
+
+
+#total--container p:last-child {
+  color: var(--color-light-lavender);
+}
+
+
+#result--container h2 {
+  color: white;
+  font-size: 2rem;
+}
+
+#message {
+  color: var(--color-light-lavender);
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
+#summary--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+@media (max-width: 640px) {
+  #container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: none;
+  }
+
+  #result--container {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  #summary--container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
